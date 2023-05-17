@@ -14,6 +14,7 @@ function Formula() {
         setPageText(pageNumber);
     }
 
+
     const { data, isLoading, errorMessage } = useWeatherBit({
         key: '587190a81601404d88d200dd8ec3f9ec',
         lat: '23.0225',
@@ -22,7 +23,6 @@ function Formula() {
         city_name: "Ahmedabad",
         unit: 'M', // values are (metric, standard, imperial)
     });
-
 
     const values = [null, 1, 2, 3, 4, 5];
     let items = [];
@@ -57,17 +57,6 @@ function Formula() {
                 <Chart activePage={activePage} weatherTemp={data} />
             </div>
 
-            <div className="my-5">
-                <ReactWeather
-                    isLoading={isLoading}
-                    errorMessage={errorMessage}
-                    data={data}
-                    lang="en"
-                    locationLabel={data?.location}
-                    unitsLabels={{ temperature: '°C', windSpeed: 'Km/h' }}
-                    showForecast
-                />
-            </div>
         </div>
     );
 }
